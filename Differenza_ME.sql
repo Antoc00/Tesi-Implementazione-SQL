@@ -1,4 +1,3 @@
-/* NON MANTIENE ORDINE MA PIU' EFFICIENTE*/
 CREATE OR REPLACE FUNCTION array_difference(t1_me pair[], t2_me pair[]) RETURNS pair[] AS $$
 BEGIN
     RETURN ARRAY(
@@ -9,17 +8,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-/*MANTIENE ORDINE MA MOLTO INEFFICIENTE
-CREATE OR REPLACE FUNCTION array_difference_order(t1_me pair[], t2_me pair[]) RETURNS pair[] AS $$
-DECLARE ret pair[];
-BEGIN
-   SELECT COALESCE(array_agg(elem), '{}') INTO RET
-   FROM UNNEST(t1_me) elem
-   WHERE elem <> ALL(t2_me);
-   RETURN ret;
-END;
-$$ LANGUAGE plpgsql;
-*/
 CREATE OR REPLACE FUNCTION differenza_ME()
 RETURNS TABLE(
   Attr1_diff varchar(150),
