@@ -31,60 +31,6 @@ CREATE TABLE t2_hyp (
 	d3 int4range
 );
 
-DROP TABLE IF EXISTS t2_im;
-CREATE TABLE t2_im (
-	Attr1 varchar(150),
-	Attr2 varchar(150),
-	s1 int4range,
-	d1 int4range,
-	s2 int4range,
-	d2 int4range,
-	s3 int4range,
-	d3 int4range
-);
-
-DROP TABLE IF EXISTS t1_im;
-CREATE TABLE t1_im (
-	Attr1 varchar(150),
-	Attr2 varchar(150),
-	s1 int4range,
-	d1 int4range,
-	s2 int4range,
-	d2 int4range,
-	s3 int4range,
-	d3 int4range
-);
-
-DROP TABLE IF EXISTS t2_im;
-CREATE TABLE t2_im (
-	Attr1 varchar(150),
-	Attr2 varchar(150),
-	s1 int4range,
-	d1 int4range,
-	s2 int4range,
-	d2 int4range,
-	s3 int4range,
-	d3 int4range
-);
-
-DROP TABLE IF EXISTS t1_me;
-CREATE TABLE t1_me (
-	Attr1 varchar(150),
-	Attr2 varchar(150),
-	low pair[],
-	medium pair[],
-	high pair[]
-);
-
-DROP TABLE IF EXISTS t2_me;
-CREATE TABLE t2_me (
-	Attr1 varchar(150),
-	Attr2 varchar(150),
-	low pair[],
-	medium pair[],
-	high pair[]
-);
-
 DROP TABLE IF EXISTS t1_me_hyp;
 CREATE TABLE t1_me_hyp (
 	Attr1 varchar(150),
@@ -212,9 +158,9 @@ IF countrows < numrows * tempintersect THEN -- le quadruple si devono intersecar
     r1.s1 = int4range(smin, smax, '[]');		
     
     -- END QUADRUPLA 1 PRIMA TABELLA
-    a = smin + 5 * interval_mul; b = smin + 10 * interval_mul;
+    a = smin + 3 * interval_mul; b = smin + 7 * interval_mul;
     emin = floor(random()*(b-a+1)) + a;
-    a = smax + 11 * interval_mul; b = smax + 15 * interval_mul;
+    a = smax + 8 * interval_mul; b = smax + 10 * interval_mul;
     emax = floor(random()*(b-a+1)) + a;
 
     r1.e1 = int4range(emin, emax, '[]');
@@ -228,9 +174,9 @@ IF countrows < numrows * tempintersect THEN -- le quadruple si devono intersecar
     r2.s1 = int4range(smin, smax, '[]');
 
     -- END QUADRUPLA 1 SECONDA TABELLA
-    a = smin + 5 * interval_mul; b = smin + 10 * interval_mul;
+    a = smin + 3 * interval_mul; b = smin + 7 * interval_mul;
     emin = floor(random()*(b-a+1)) + a;
-    a = smax + 11 * interval_mul; b = smax + 15 * interval_mul;
+    a = smax + 8 * interval_mul; b = smax + 10 * interval_mul;
     emax = floor(random()*(b-a+1)) + a;
 
     r2.e1 = int4range(emin, emax, '[]');
@@ -246,9 +192,9 @@ ELSE -- le quadruple non si devono intersecare
     r1.s1 = int4range(smin, smax, '[]');
 
     -- END QUADRUPLA 1 PRIMA TABELLA
-    a = smin + 5 * interval_mul; b = smin + 10 * interval_mul;
+    a = smin + 3 * interval_mul; b = smin + 7 * interval_mul;
     emin = floor(random()*(b-a+1)) + a;
-    a = smax + 11 * interval_mul; b = smax + 15 * interval_mul;
+    a = smax + 8 * interval_mul; b = smax + 10 * interval_mul;
     emax = floor(random()*(b-a+1)) + a;
 
     r1.e1 = int4range(emin, emax, '[]');
@@ -262,9 +208,9 @@ ELSE -- le quadruple non si devono intersecare
     r2.s1 = int4range(smin, smax, '[]');
 
     -- END QUADRUPLA 1 SECONDA TABELLA
-    a = smin + 5 * interval_mul; b = smin + 10 * interval_mul;
+    a = smin + 3 * interval_mul; b = smin + 7 * interval_mul;
     emin = floor(random()*(b-a+1)) + a;
-    a = smax + 11 * interval_mul; b = smax + 15 * interval_mul;
+    a = smax + 8 * interval_mul; b = smax + 10 * interval_mul;
     emax = floor(random()*(b-a+1)) + a;
 
     r2.e1 = int4range(emin, emax, '[]');
